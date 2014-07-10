@@ -1,12 +1,12 @@
 {
-	"name"		:	"sample-signup-app",
-	"version"	:	"0.0.1",
-	"description"	:	"Application",
-	"main"		:	"server.js",
-	"author"	:	"Hitesh Patel",
-	"dependencies"	:	{
-		"express"	:	"3.3.5",
-		"mongoose"	:	"~3.6.2",
-		"angular-route": "~1.2.x"
-	}
+    "name"		:	"gorilla-campaign",
+    "version"	:	"0.0.1",
+    "description"	:	"Application to signup for gorilla-campaign",
+    "main"		:	"server.js",
+    "author"	:	"Hitesh Patel",
+    "dependencies"	:	{
+        "express"	:	"3.3.5",
+        "mongoose"	:	"~3.6.2",
+        "jade"      :   "*"
+    }
 }

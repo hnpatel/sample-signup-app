@@ -1,15 +1,22 @@
-<div>
-    <form name="signupForm" id="signupform" ng-submit="save()">
-        <fieldset>
-            <legend>Sign UP</legend>
-            <div class="input-div">
-                <center><input type="text" placeholder="First Name" ng-model="firstName" size=50 required/></center>
-                <center><input type="text" placeholder="Last Name" ng-model="lastName" size=50 required/></center>
-                <center><input type="text" placeholder="Email Address" ng-model="email" size=50 required/></center>
-            </div>
-        </fieldset>
-        <p>
-        <div><center><button type="submit">Sign UP</button></center></div>
-        </p>
-    </form>
-</div>
+<form name="signupForm" novalidate role="form">
+    <legend>Sign UP</legend>
+    <div class="innerDiv">
+        <div class="form-group">
+            <label class="input-lable" for="firstName">First Name </label>
+            <span class="label label-danger" data-ng-show="submitted && signupForm.firstName.$error.required" >Required !</span>
+            <input type="text" name="firstName" data-ng-model="firstName" class="form-control" required placeholder="First Name"/>
+        </div>
+        <div class="form-group">
+            <label class="input-lable" for="lastName">Last Name </label>
+            <span class="label label-danger" data-ng-show="submitted && signupForm.lastName.$error.required">Required !</span>
+            <input type="text" name="lastName" data-ng-model="lastName" class="form-control" required placeholder="Last Name"/>
+        </div>
+        <div class="form-group">
+            <label class="input-lable" for="email">Email address</label>
+            <span class="label label-danger" data-ng-show="submitted && signupForm.email.$error.required">Required !</span>
+            <span class="label label-danger" data-ng-show="submitted && signupForm.$error.email">Invalid email!</span>
+            <input type="email" name="email" data-ng-model="email" class="form-control" required placeholder="Email Address"/>
+        </div>
+        <center><button data-ng-click="save(signupForm)" class="btn btn-default">Sign UP</button></center>
+    </div>
+</form>

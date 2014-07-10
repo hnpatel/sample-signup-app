@@ -1,5 +1,5 @@
 'use strict';
-var myApp = angular.module('gorilla-campaign', ['ngRoute']);
+var myApp = angular.module('sign-up', ['ngRoute']);
 
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -26,8 +26,13 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 
 function SignupFormCtrl($scope, $location, $http, $templateCache){
     var method = 'POST';
-    var insertUrl = 'http://localhost:8080/insertRecord';
-    $scope.save = function(){
+    var insertUrl = '/insertRecord';
+    $scope.save = function(form){
+        $scope.submitted = true;
+        if (form.$invalid) {
+            $log.error('Invalid Form !!');
+            return;
+        }
         var formData = {
             'firstName' :   this.firstName,
             'lastName'  :   this.lastName,

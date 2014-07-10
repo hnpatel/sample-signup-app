@@ -3,9 +3,13 @@ var Person = require('./models/Person');
 module.exports = function(app){
 	app.get('/verify-records', function(req, res){
 	    console.log("Retrieve all entries");
-    	Person.find({},{_id:0, __v:0}, function(err, doc){
-    		res.send(doc);
-    	});
+        Person.find({},{_id:0, __v:0}, function(err, doc){
+            if(!err){
+                res.render('records', {
+                    records : doc
+                })
+            }
+        });
     });
 
     app.post('/insertRecord', function(req, res){
@@ -14,7 +18,10 @@ module.exports = function(app){
         res.header("Access-Control-Allow-Methods", "GET, POST");
 
         var receivedData = JSON.parse(req.body.userInfo);
-        var email = receivedData.email.toLowerCase();
+        var email;
+        if(receivedData.email !=undefined){
+            email = receivedData.email.toLowerCase();
+        }
         Person.find({email : email}, function(err, doc){
             if(!err && doc.length > 0){
                 console.log('Requested Record Exists in the Database');

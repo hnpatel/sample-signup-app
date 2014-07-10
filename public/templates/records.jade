@@ -1,0 +1,26 @@
+doctype html
+html(lang='en' ng-app='records')
+    head
+        title Email Records
+        link(rel='stylesheet', href='../css/app.css')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js')
+        script(src='../js/controllers/recordController.js')
+        script var records = !{JSON.stringify(records)}
+    body(ng-controller='RecordCtrl')
+        div.outerDiv
+            h2 Email Records
+            hr
+            br
+            table.recordTable
+                thead
+                    tr
+                        th No.
+                        th Name
+                        th Email
+                tbody(ng-repeat='record in records')
+                    tr
+                        td {{$index + 1}}
+                        td {{record.firstName}},{{record.lastName}}
+                        td {{record.email}}
+
