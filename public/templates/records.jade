@@ -7,11 +7,13 @@ html(lang='en' ng-app='records')
         script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js')
         script(src='../js/controllers/recordController.js')
         script var records = !{JSON.stringify(records)}
-    body(ng-controller='RecordCtrl')
-        div.outerDiv
+    body
+        div.outerDiv(ng-controller='RecordCtrl')
             h2 Email Records
             hr
             br
+            a(href='/logout') Logout
+            p
             table.recordTable
                 thead
                     tr

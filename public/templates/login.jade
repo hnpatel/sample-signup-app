@@ -1,0 +1,17 @@
+extends header
+block header
+    script(src='../js/controllers/loginFormController.js')
+    body(ng-controller="LoginFormController")
+        form(name="loginForm", action="/user/login", method="POST")
+            legend Login
+            div.innerDiv
+                div.form-group
+                    label.input-label(for="email") Email Address
+                    span.label.label-danger(data-ng-show="submitted && loginForm.email.$error.required") Required !
+                    span.label.label-danger(data-ng-show="submitted && loginForm.$error.email") Invalid Email !
+                    input.form-control(type="email", name="email", data-ng-model="email", required, placeholder="Email Address")
+                div.form-group
+                    label.input-label(for="password") Password
+                    input.form-control(type="password", name="password", data-ng-model="password", required, placeholder="Password")
+                button.btn.btn-default(type="submit") Login
+
