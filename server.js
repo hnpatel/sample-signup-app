@@ -31,7 +31,7 @@ app.configure(function(){
     app.use(passport.session());
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
-    app.set('views', __dirname + '/public/templates');
+    app.set('views', __dirname + '/app/views');
     app.set('view engine', 'jade');
 });
 
