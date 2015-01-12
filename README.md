@@ -1,4 +1,4 @@
-sample-signup-app
+Sample-signup-app
 =================
 This project is build using MEAN stack.
 
